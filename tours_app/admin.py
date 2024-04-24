@@ -3,6 +3,7 @@ from django.contrib import admin
 from . models import Contact
 from . models import Trending
 from . models import Booking
+from . models import Rooms
 # Register your models here.
 
 @admin.register(Contact)
@@ -31,4 +32,12 @@ class AdminTrending(admin.ModelAdmin):
         'price',
         'location',
         'image'
+    ]
+
+@admin.register(Rooms)
+class AdminRooms(admin.ModelAdmin):
+    list_display = [
+        'price',
+        'description',
+        'hotel_name'
     ]

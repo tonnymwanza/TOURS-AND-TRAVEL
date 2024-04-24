@@ -52,7 +52,6 @@
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a href="{% url 'home' %}">home</a></li>
 								<li class="main_nav_item"><a href="{% url 'about' %}">about us</a></li>
-								<li class="main_nav_item"><a href="{% url 'offers' %}">offers</a></li>
 								<li class="main_nav_item"><a href="{% url 'contact' %}">contact</a></li>
 							</ul>
 						</div>
@@ -99,11 +98,9 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="#">home</a></li>
-				<li class="menu_item"><a href="about.html">about us</a></li>
-				<li class="menu_item"><a href="offers.html">offers</a></li>
-				<li class="menu_item"><a href="blog.html">news</a></li>
-				<li class="menu_item"><a href="contact.html">contact</a></li>
+				<li class="menu_item"><a href="{% url 'home' %}">home</a></li>
+				<li class="menu_item"><a href="{% url 'about' %}">about us</a></li>
+				<li class="menu_item"><a href="{% url 'contact' %}">contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -636,12 +633,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<h2 class="section_title">the best offers with rooms</h2>
+					<h2 class="section_title">the best room offers </h2>
 				</div>
 			</div>
 			<div class="row offers_items">
 
 				<!-- Offers Item -->
+				{% for room in rooms %}
 				<div class="col-lg-6 offers_col">
 					<div class="offers_item">
 						<div class="row">
@@ -649,12 +647,12 @@
 								<div class="offers_image_container">
 									<!-- Image by https://unsplash.com/@kensuarez -->
 									<div class="offers_image_background" style="background-image:url(images/offer_1.jpg)"></div>
-									<div class="offer_name"><a href="#">grand castle</a></div>
+									<div class="offer_name"><a href="#">{{room.hotel_name}}</a></div>
 								</div>
 							</div>
 							<div class="col-lg-6">
 								<div class="offers_content">
-									<div class="offers_price">$70<span>per night</span></div>
+									<div class="offers_price">${{room.price}}<span>per night</span></div>
 									<div class="rating_r rating_r_4 offers_rating">
 										<i></i>
 										<i></i>
@@ -662,7 +660,7 @@
 										<i></i>
 										<i></i>
 									</div>
-									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
+									<p class="offers_text">{{room.description}}</p>
 									<div class="offers_icons">
 										<ul class="offers_icons_list">
 											<li class="offers_icons_item"><img src="{% static 'images/post.png' %}" alt=""></li>
@@ -671,128 +669,16 @@
 											<li class="offers_icons_item"><img src="{% static 'images/sailboat.png' %}" alt=""></li>
 										</ul>
 									</div>
-									<div class="offers_link"><a href="offers.html">read more</a></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 				
-				<!-- Offers Item -->
-				<div class="col-lg-6 offers_col">
-					<div class="offers_item">
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="offers_image_container">
-									<!-- Image by Egzon Bytyqi -->
-									<div class="offers_image_background" style="background-image:url(images/offer_2.jpg)"></div>
-									<div class="offer_name"><a href="#">turkey hills</a></div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="offers_content">
-									<div class="offers_price">$50<span>per night</span></div>
-									<div class="rating_r rating_r_4 offers_rating">
-										<i></i>
-										<i></i>
-										<i></i>
-										<i></i>
-										<i></i>
-									</div>
-									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
-									<div class="offers_icons">
-										<ul class="offers_icons_list">
-											<li class="offers_icons_item"><img src="{% static 'images/post.png' %}" alt=""></li>
-											<li class="offers_icons_item"><img src="{% static 'images/compass.png' %}" alt=""></li>
-											<li class="offers_icons_item"><img src="{% static 'images/bicycle.png' %}" alt=""></li>
-											<li class="offers_icons_item"><img src="{% static 'images/sailboat.png' %}" alt=""></li>
-										</ul>
-									</div>
-									<div class="offers_link"><a href="offers.html">read more</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Offers Item -->
-				<div class="col-lg-6 offers_col">
-					<div class="offers_item">
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="offers_image_container">
-									<!-- Image by https://unsplash.com/@nevenkrcmarek -->
-									<div class="offers_image_background" style="background-image:url(images/offer_3.jpg)"></div>
-									<div class="offer_name"><a href="#">island dream</a></div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="offers_content">
-									<div class="offers_price">$90<span>per night</span></div>
-									<div class="rating_r rating_r_4 offers_rating">
-										<i></i>
-										<i></i>
-										<i></i>
-										<i></i>
-										<i></i>
-									</div>
-									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
-									<div class="offers_icons">
-										<ul class="offers_icons_list">
-											<li class="offers_icons_item"><img src="{% static 'images/post.png' %}" alt=""></li>
-											<li class="offers_icons_item"><img src="{% static 'images/compass.png' %}" alt=""></li>
-											<li class="offers_icons_item"><img src="{% static 'images/bicycle.png' %}" alt=""></li>
-											<li class="offers_icons_item"><img src="{% static 'images/sailboat.png' %}" alt=""></li>
-										</ul>
-									</div>
-									<div class="offers_link"><a href="offers.html">read more</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Offers Item -->
-				<div class="col-lg-6 offers_col">
-					<div class="offers_item">
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="offers_image_container">
-									<!-- Image by https://unsplash.com/@mantashesthaven -->
-									<div class="offers_image_background" style="background-image:url(images/offer_4.jpg)"></div>
-									<div class="offer_name"><a href="#">travel light</a></div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="offers_content">
-									<div class="offers_price">$30<span>per night</span></div>
-									<div class="rating_r rating_r_4 offers_rating">
-										<i></i>
-										<i></i>
-										<i></i>
-										<i></i>
-										<i></i>
-									</div>
-									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
-									<div class="offers_icons">
-										<ul class="offers_icons_list">
-											<li class="offers_icons_item"><img src="{% static 'images/post.png' %}" alt=""></li>
-											<li class="offers_icons_item"><img src="{% static 'images/compass.png' %}" alt=""></li>
-											<li class="offers_icons_item"><img src="{% static 'images/bicycle.png' %}" alt=""></li>
-											<li class="offers_icons_item"><img src="{% static 'images/sailboat.png' %}" alt=""></li>
-										</ul>
-									</div>
-									<div class="offers_link"><a href="offers.html">read more</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
+				
+				
+				
 	<!-- Testimonials -->
 
 	<div class="testimonials">
@@ -969,106 +855,24 @@
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<h2 class="section_title">trending now</h2>
+					<h2 class="section_title">trending hotels</h2>
 				</div>
 			</div>
 			<div class="row trending_container">
 
 				<!-- Trending Item -->
+				{% for trend in trending %}
 				<div class="col-lg-3 col-sm-6">
 					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="{% static 'images/trend_1.png' %}" alt="https://unsplash.com/@fransaraco"></div>
+						<div class="trending_image"><img src="{{trend.image.url}}" alt="" width="" height="120px"></div>
 						<div class="trending_content">
-							<div class="trending_title"><a href="#">grand hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
+							<div class="trending_title"><a href="">{{trend.name}}</a></div>
+							<div class="trending_price">From ${{trend.price}}</div>
+							<div class="trending_location">{{trend.location}}</div>
 						</div>
 					</div>
 				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="{% static 'images/trend_2.png' %}" alt="https://unsplash.com/@grovemade"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">mars hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="{% static 'images/trend_3.png' %}" alt="https://unsplash.com/@jbriscoe"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">queen hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="{% static 'images/trend_4.png' %}" alt="https://unsplash.com/@oowgnuj"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">mars hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="{% static 'images/trend_5.png' %}" alt="https://unsplash.com/@mindaugas"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">grand hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="{% static 'images/trend_6.png' %}" alt="https://unsplash.com/@itsnwa"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">mars hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="{% static 'images/trend_7.png' %}" alt="https://unsplash.com/@rktkn"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">queen hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="{% static 'images/trend_8.png' %}" alt="https://unsplash.com/@thoughtcatalog"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">mars hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
+				{% endfor %}
 
 			</div>
 		</div>
@@ -1081,9 +885,8 @@
 			<div class="row">
 				<div class="col-lg-3 order-lg-1 order-2  ">
 					<div class="copyright_content d-flex flex-row align-items-center">
-						<div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;OLIVER 2024
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+						<!-- <div>Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						<!-- Copyright &copy; OLIVER 2024</div> -->
 					</div>
 				</div>
 			</div>

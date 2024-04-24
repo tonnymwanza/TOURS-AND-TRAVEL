@@ -8,15 +8,21 @@ from django.contrib import messages
 from . forms import ContactForm
 from . models import Booking
 from . models import Contact
+from . models import Trending
 from . forms import BookingForm
+from . models import Rooms
 # Create your views here.
 
 class HomeView(View):
 
     def get(self, request):
+        trending = Trending.objects.all()
+        rooms = Rooms.objects.all()
         form = BookingForm(request.GET)
         context = {
-            'form': form
+            'form': form,
+            'trending': trending,
+            'rooms': rooms
         }
         return render(request, 'index.html', context)
     

@@ -3,6 +3,7 @@ from django.test import TestCase
 from . models import Booking
 from . models import Contact
 from . models import Trending
+from . models import Rooms
 # Create your tests here.
 
 class ContactTestCase(TestCase):
@@ -41,3 +42,15 @@ class TrendingTestCase(TestCase):
         self.assertEqual(self.trending.name, 'hotel')
         self.assertEqual(self.trending.price, 123)
         self.assertEqual(self.trending.location, 'nyali')
+
+class RoomsTestCase(TestCase):
+
+    def setUp(self):
+        self.room = Rooms.objects.create(
+            price=350, description='this is a good hotel', hotel_name='miami'
+        )
+
+    def test_rooms(self):
+        self.assertEqual(self.room.price, 350)
+        self.assertEqual(self.room.hotel_name, 'miami')
+        self.assertEqual(self.room.description, 'this is a good hotel')

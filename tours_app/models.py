@@ -22,3 +22,9 @@ class Trending(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     location = models.CharField(max_length=40)
     image = models.ImageField()
+
+
+class Rooms(models.Model):
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    description = models.CharField(max_length=255)
+    hotel_name = models.CharField(max_length=100)
