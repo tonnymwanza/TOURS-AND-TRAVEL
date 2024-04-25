@@ -30,20 +30,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						<div class="phone">+45 345 3324 56789</div>
-						<div class="social">
-							<ul class="social_list">
-								<li class="social_list_item"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
 						<div class="user_box ml-auto">
-							<div class="user_box_login user_box_link"><a href="#">login</a></div>
-							<div class="user_box_register user_box_link"><a href="#">register</a></div>
+							<div class="user_box_login user_box_link"><a href="{% url 'login_user' %}">login</a></div>
+							<div class="user_box_register user_box_link"><a href="{% url 'register_user' %}">register</a></div>
 						</div>
 					</div>
 				</div>
@@ -109,11 +98,9 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="index.html">home</a></li>
-				<li class="menu_item"><a href="#">about us</a></li>
-				<li class="menu_item"><a href="offers.html">offers</a></li>
-				<li class="menu_item"><a href="blog.html">news</a></li>
-				<li class="menu_item"><a href="contact.html">contact</a></li>
+				<li class="menu_item"><a href="{% url 'home' %}">home</a></li>
+				<li class="menu_item"><a href="{% url 'about' %}">about us</a></li>
+				<li class="menu_item"><a href="{% url 'contact' %}">contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -138,7 +125,8 @@
 				<div class="col-lg-5">
 					<div class="intro_content">
 						<div class="intro_title">we have the best tours</div>
-						<p class="intro_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vulputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer elementum orci eu vehicula pretium. Donec bibendum tristique condimentum. Aenean in lacus ligula. Phasellus euismod gravida eros. Aenean nec ipsum aliquet, pharetra magna id, interdum sapien. Etiam id lorem eu nisl pellentesque semper. Nullam tincidunt metus placerat, suscipit leo ut, tempus nulla. Fusce at eleifend tellus. Ut eleifend dui nunc, non fermentum quam placerat non. Etiam venenatis nibh augue, sed eleifend justo tristique eu</p>
+						<p class="intro_text">We have the best tours because our Tours and Travel Management System ensures every detail is meticulously planned and executed. From iconic landmarks to hidden gems, our curated itineraries are crafted with precision to offer unparalleled experiences. With our advanced technology, we seamlessly handle reservations, logistics, and communication, ensuring smooth operations and peace of mind for our clients. Our dedication to excellence and innovation
+							 sets us apart, guaranteeing that every journey with us is not just a trip, but a remarkable adventure to cherish forever</p>
 						<div class="button intro_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
 					</div>
 				</div>
@@ -157,7 +145,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1 text-center">
-					<p class="stats_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vulputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer elementum orci eu vehicula pretium. Donec bibendum tristique condimentum. Aenean in lacus ligula. </p>
+					<p class="stats_text"> </p>
 				</div>
 			</div>
 			<div class="row">
